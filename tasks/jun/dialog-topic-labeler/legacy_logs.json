@@ -1,0 +1,115 @@
+{
+  "task": "dialog-topic-labeler",
+  "dialect": "compact-v2",
+  "conversations": [
+    {
+      "conversation_id": "dialog-topic-labeler-c01",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Please tag these customer messages for the weekly triage report."
+        },
+        {
+          "role": "assistant",
+          "value": "[ClassifyIntent(text=\"The app crashes when I upload a photo\", taxonomy_version=\"2026\")]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"ClassifyIntent\", \"results\": {\"label\": \"account\", \"confidence\": 0.744, \"matched_terms\": [\"invoice\", \"refund\", \"cancel\"]}}]"
+        }
+      ]
+    },
+    {
+      "conversation_id": "dialog-topic-labeler-c02",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Run the classifier over today's support inbox."
+        },
+        {
+          "role": "assistant",
+          "value": "[ClassifyIntent(text=\"How do I cancel my subscription?\", taxonomy_version=\"3.2\")]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"ClassifyIntent\", \"results\": {\"label\": \"account\", \"confidence\": 0.874, \"matched_terms\": [\"password\", \"invoice\", \"address\"]}}]"
+        },
+        {
+          "role": "user",
+          "value": "Which category does the password complaint belong to?"
+        },
+        {
+          "role": "assistant",
+          "value": "[FetchTaxonomy(version=\"3.2\", locale=\"ja-JP\")]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"FetchTaxonomy\", \"results\": {\"version\": \"3.2\", \"locale\": \"ja-JP\", \"categories\": [\"cat-0\", \"cat-1\", \"cat-2\", \"cat-3\", \"cat-4\"]}}]"
+        }
+      ]
+    },
+    {
+      "conversation_id": "dialog-topic-labeler-c03",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Which category does the password complaint belong to?"
+        },
+        {
+          "role": "assistant",
+          "value": "[ClassifyIntent(text=\"Where is my refund?\", taxonomy_version=\"4.0\"), FetchTaxonomy(version=\"3.2\", locale=\"de-DE\")]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"ClassifyIntent\", \"results\": {\"label\": \"billing\", \"confidence\": 0.58, \"matched_terms\": [\"photo\", \"address\", \"cancel\"]}}, {\"name\": \"FetchTaxonomy\", \"results\": {\"version\": \"3.2\", \"locale\": \"de-DE\", \"categories\": [\"cat-0\", \"cat-1\", \"cat-2\", \"cat-3\", \"cat-4\"]}}]"
+        }
+      ]
+    },
+    {
+      "conversation_id": "dialog-topic-labeler-c04",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Can you batch-label the new conversation exports?"
+        },
+        {
+          "role": "assistant",
+          "value": "[ClassifyIntent(text=\"My password reset link expired\", taxonomy_version=\"3.2\"), FetchTaxonomy(version=\"3.2\", locale=\"de-DE\")]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"ClassifyIntent\", \"results\": {\"label\": \"billing\", \"confidence\": 0.811, \"matched_terms\": [\"refund\", \"address\", \"password\"]}}, {\"name\": \"FetchTaxonomy\", \"results\": {\"version\": \"3.2\", \"locale\": \"de-DE\", \"categories\": [\"cat-0\", \"cat-1\", \"cat-2\", \"cat-3\"]}}]"
+        },
+        {
+          "role": "user",
+          "value": "Please tag these customer messages for the weekly triage report."
+        },
+        {
+          "role": "assistant",
+          "value": "[FetchTaxonomy(version=\"3.2\", locale=\"ja-JP\")]"
+        },
+        {
+          "role": "tool",
+          "value": "[]"
+        }
+      ]
+    },
+    {
+      "conversation_id": "dialog-topic-labeler-c05",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Please tag these customer messages for the weekly triage report."
+        },
+        {
+          "role": "assistant",
+          "value": "[ClassifyIntent(text=\"Can I change the shipping address?\", taxonomy_version=\"3.2\"), FetchTaxonomy(version=\"3.2\", locale=\"en-US\")]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"ClassifyIntent\", \"results\": {\"label\": \"shipping\", \"confidence\": 0.726, \"matched_terms\": [\"refund\", \"photo\", \"invoice\"]}}]"
+        }
+      ]
+    }
+  ]
+}

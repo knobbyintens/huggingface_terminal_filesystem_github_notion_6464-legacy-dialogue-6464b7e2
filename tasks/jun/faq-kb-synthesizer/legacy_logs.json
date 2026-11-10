@@ -1,0 +1,174 @@
+{
+  "task": "faq-kb-synthesizer",
+  "dialect": "compact-v2",
+  "conversations": [
+    {
+      "conversation_id": "faq-kb-synthesizer-c01",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Search the knowledge base and draft an FAQ answer."
+        },
+        {
+          "role": "assistant",
+          "value": "[SearchKnowledge(query=\"subscription pause\", top_k=9)]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"SearchKnowledge\", \"results\": {\"query\": \"subscription pause\", \"hits\": [{\"doc_id\": \"KB-1850\", \"score\": 0.95}, {\"doc_id\": \"KB-3809\", \"score\": 0.769}, {\"doc_id\": \"KB-5673\", \"score\": 0.895}, {\"doc_id\": \"KB-8444\", \"score\": 0.828}]}}]"
+        }
+      ]
+    },
+    {
+      "conversation_id": "faq-kb-synthesizer-c02",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Publish the revised answer to the web channel."
+        },
+        {
+          "role": "assistant",
+          "value": "[SearchKnowledge(query=\"subscription pause\", top_k=5)]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"SearchKnowledge\", \"results\": {\"query\": \"subscription pause\", \"hits\": [{\"doc_id\": \"KB-3824\", \"score\": 0.379}, {\"doc_id\": \"KB-6854\", \"score\": 0.78}, {\"doc_id\": \"KB-5613\", \"score\": 0.366}, {\"doc_id\": \"KB-4062\", \"score\": 0.44}]}}]"
+        },
+        {
+          "role": "user",
+          "value": "What do we have on shipping delay compensation?"
+        },
+        {
+          "role": "assistant",
+          "value": "[ComposeAnswer(faq_id=\"FAQ-16256\", tone=\"neutral\", max_words=80)]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"ComposeAnswer\", \"results\": {\"faq_id\": \"FAQ-16256\", \"draft\": \"Refunds are processed within five business days.\", \"word_count\": 61}}]"
+        }
+      ]
+    },
+    {
+      "conversation_id": "faq-kb-synthesizer-c03",
+      "turns": [
+        {
+          "role": "user",
+          "value": "What do we have on shipping delay compensation?"
+        },
+        {
+          "role": "assistant",
+          "value": "[SearchKnowledge(query=\"subscription pause\", top_k=8), ComposeAnswer(faq_id=\"FAQ-97058\", tone=\"friendly\", max_words=120)]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"SearchKnowledge\", \"results\": {\"query\": \"subscription pause\", \"hits\": [{\"doc_id\": \"KB-1485\", \"score\": 0.428}, {\"doc_id\": \"KB-8438\", \"score\": 0.408}, {\"doc_id\": \"KB-8551\", \"score\": 0.461}, {\"doc_id\": \"KB-5899\", \"score\": 0.416}]}}, {\"name\": \"ComposeAnswer\", \"results\": {\"faq_id\": \"FAQ-97058\", \"draft\": \"Reset your password from the account settings page.\", \"word_count\": 110}}]"
+        }
+      ]
+    },
+    {
+      "conversation_id": "faq-kb-synthesizer-c04",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Compose a friendly answer for the gift card question."
+        },
+        {
+          "role": "assistant",
+          "value": "[SearchKnowledge(query=\"shipping delay compensation\", top_k=11), ComposeAnswer(faq_id=\"FAQ-86755\", tone=\"neutral\", max_words=120)]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"SearchKnowledge\", \"results\": {\"query\": \"shipping delay compensation\", \"hits\": [{\"doc_id\": \"KB-9111\", \"score\": 0.666}, {\"doc_id\": \"KB-9228\", \"score\": 0.469}, {\"doc_id\": \"KB-5413\", \"score\": 0.309}, {\"doc_id\": \"KB-1172\", \"score\": 0.501}]}}, {\"name\": \"ComposeAnswer\", \"results\": {\"faq_id\": \"FAQ-86755\", \"draft\": \"Refunds are processed within five business days.\", \"word_count\": 109}}]"
+        },
+        {
+          "role": "user",
+          "value": "Search the knowledge base and draft an FAQ answer."
+        },
+        {
+          "role": "assistant",
+          "value": "[ComposeAnswer(faq_id=\"FAQ-13134\", tone=\"formal\", max_words=160)]"
+        },
+        {
+          "role": "tool",
+          "value": "[]"
+        }
+      ]
+    },
+    {
+      "conversation_id": "faq-kb-synthesizer-c05",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Search the knowledge base and draft an FAQ answer."
+        },
+        {
+          "role": "assistant",
+          "value": "[SearchKnowledge(query=\"gift card balance\", top_k=3), ComposeAnswer(faq_id=\"FAQ-13383\", tone=\"friendly\", max_words=80)]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"SearchKnowledge\", \"results\": {\"query\": \"gift card balance\", \"hits\": [{\"doc_id\": \"KB-1067\", \"score\": 0.353}, {\"doc_id\": \"KB-4681\", \"score\": 0.383}, {\"doc_id\": \"KB-5432\", \"score\": 0.68}]}}]"
+        }
+      ]
+    },
+    {
+      "conversation_id": "faq-kb-synthesizer-c06",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Publish the revised answer to the web channel."
+        },
+        {
+          "role": "assistant",
+          "value": "[SearchKnowledge(query=\"gift card balance\", top_k=7), ComposeAnswer(faq_id=\"FAQ-40850\", tone=\"formal\", max_words=120), PublishDraft(doc_id=\"KB-93357\", revision=27, channel=\"api\")]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"SearchKnowledge\", \"results\": {\"query\": \"gift card balance\", \"hits\": [{\"doc_id\": \"KB-2434\", \"score\": 0.397}, {\"doc_id\": \"KB-9404\", \"score\": 0.896}, {\"doc_id\": \"KB-4811\", \"score\": 0.694}, {\"doc_id\": \"KB-3630\", \"score\": 0.502}]}}]"
+        },
+        {
+          "role": "user",
+          "value": "What do we have on shipping delay compensation?"
+        },
+        {
+          "role": "assistant",
+          "value": "[ComposeAnswer(faq_id=\"FAQ-75046\", tone=\"formal\", max_words=120)]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"ComposeAnswer\", \"results\": {\"faq_id\": \"FAQ-75046\", \"draft\": \"Refunds are processed within five business days.\", \"word_count\": 111}}]"
+        }
+      ]
+    },
+    {
+      "conversation_id": "faq-kb-synthesizer-c07",
+      "turns": [
+        {
+          "role": "user",
+          "value": "What do we have on shipping delay compensation?"
+        },
+        {
+          "role": "assistant",
+          "value": "[SearchKnowledge(query=\"gift card balance\", top_k=6), ComposeAnswer(faq_id=\"FAQ-35735\", tone=\"friendly\", max_words=160), PublishDraft(doc_id=\"KB-69333\", revision=19, channel=\"mobile\")]"
+        },
+        {
+          "role": "tool",
+          "value": "[]"
+        }
+      ]
+    },
+    {
+      "conversation_id": "faq-kb-synthesizer-c08",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Compose a friendly answer for the gift card question."
+        },
+        {
+          "role": "assistant",
+          "value": "[SearchKnowledge(query=\"password reset policy\", top_k=11), ComposeAnswer(faq_id=\"FAQ-12366\", tone=\"neutral\", max_words=120)]"
+        }
+      ]
+    }
+  ]
+}

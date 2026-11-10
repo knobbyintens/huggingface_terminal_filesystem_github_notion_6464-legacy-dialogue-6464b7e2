@@ -1,0 +1,500 @@
+[
+  {
+    "conversation_id": "email-intent-classifier-c01",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Parse this email and score the intent."
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_0",
+            "name": "ParseEmail",
+            "arguments": {
+              "message_id": "msg-38087",
+              "include_headers": true
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_0",
+        "name": "ParseEmail",
+        "content": "{\"message_id\": \"msg-38087\", \"from\": \"user369@example.com\", \"subject\": \"Refund request\", \"headers\": {\"reply_to\": \"support22@example.com\"}}"
+      }
+    ]
+  },
+  {
+    "conversation_id": "email-intent-classifier-c02",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Tag the escalation thread as churn risk."
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_0",
+            "name": "ParseEmail",
+            "arguments": {
+              "message_id": "msg-93108",
+              "include_headers": false
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_0",
+        "name": "ParseEmail",
+        "content": "{\"message_id\": \"msg-93108\", \"from\": \"user397@example.com\", \"subject\": \"Invoice question\", \"headers\": {\"reply_to\": \"support5@example.com\"}}"
+      },
+      {
+        "role": "user",
+        "content": "Classify today's inbound messages for support."
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_1",
+            "name": "ScoreIntent",
+            "arguments": {
+              "message_id": "msg-37418",
+              "model": "intent-v3"
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_1",
+        "name": "ScoreIntent",
+        "content": "{\"intent\": \"billing\", \"score\": 0.77, \"alternatives\": [{\"intent\": \"account\", \"score\": 0.243}]}"
+      }
+    ]
+  },
+  {
+    "conversation_id": "email-intent-classifier-c03",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Classify today's inbound messages for support."
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_0",
+            "name": "ParseEmail",
+            "arguments": {
+              "message_id": "msg-78082",
+              "include_headers": true
+            }
+          },
+          {
+            "id": "call_1",
+            "name": "ScoreIntent",
+            "arguments": {
+              "message_id": "msg-51012",
+              "model": "intent-lite"
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_0",
+        "name": "ParseEmail",
+        "content": "{\"message_id\": \"msg-78082\", \"from\": \"user811@example.com\", \"subject\": \"Invoice question\", \"headers\": {\"reply_to\": \"support30@example.com\"}}"
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_1",
+        "name": "ScoreIntent",
+        "content": "{\"intent\": \"churn\", \"score\": 0.474, \"alternatives\": [{\"intent\": \"account\", \"score\": 0.119}]}"
+      }
+    ]
+  },
+  {
+    "conversation_id": "email-intent-classifier-c04",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Inspect the headers on this message before tagging."
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_0",
+            "name": "ParseEmail",
+            "arguments": {
+              "message_id": "msg-57424",
+              "include_headers": false
+            }
+          },
+          {
+            "id": "call_1",
+            "name": "ScoreIntent",
+            "arguments": {
+              "message_id": "msg-74683",
+              "model": "intent-v3"
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_0",
+        "name": "ParseEmail",
+        "content": "{\"message_id\": \"msg-57424\", \"from\": \"user223@example.com\", \"subject\": \"Invoice question\", \"headers\": {\"reply_to\": \"support5@example.com\"}}"
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_1",
+        "name": "ScoreIntent",
+        "content": "{\"intent\": \"churn\", \"score\": 0.707, \"alternatives\": [{\"intent\": \"billing\", \"score\": 0.171}]}"
+      },
+      {
+        "role": "user",
+        "content": "Parse this email and score the intent."
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_2",
+            "name": "ScoreIntent",
+            "arguments": {
+              "message_id": "msg-58609",
+              "model": "intent-lite"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "conversation_id": "email-intent-classifier-c05",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Parse this email and score the intent."
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_0",
+            "name": "ParseEmail",
+            "arguments": {
+              "message_id": "msg-67732",
+              "include_headers": true
+            }
+          },
+          {
+            "id": "call_1",
+            "name": "ScoreIntent",
+            "arguments": {
+              "message_id": "msg-10906",
+              "model": "intent-lite"
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_0",
+        "name": "ParseEmail",
+        "content": "{\"message_id\": \"msg-67732\", \"from\": \"user848@example.com\", \"subject\": \"Refund request\", \"headers\": {\"reply_to\": \"support17@example.com\"}}"
+      }
+    ]
+  },
+  {
+    "conversation_id": "email-intent-classifier-c06",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Tag the escalation thread as churn risk."
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_0",
+            "name": "ParseEmail",
+            "arguments": {
+              "message_id": "msg-23147",
+              "include_headers": true
+            }
+          },
+          {
+            "id": "call_1",
+            "name": "ScoreIntent",
+            "arguments": {
+              "message_id": "msg-71507",
+              "model": "intent-v3"
+            }
+          },
+          {
+            "id": "call_2",
+            "name": "TagMessage",
+            "arguments": {
+              "message_id": "msg-71150",
+              "tag": "billing",
+              "sticky": false
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_0",
+        "name": "ParseEmail",
+        "content": "{\"message_id\": \"msg-23147\", \"from\": \"user747@example.com\", \"subject\": \"Refund request\", \"headers\": {\"reply_to\": \"support1@example.com\"}}"
+      },
+      {
+        "role": "user",
+        "content": "Classify today's inbound messages for support."
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_3",
+            "name": "ScoreIntent",
+            "arguments": {
+              "message_id": "msg-59619",
+              "model": "intent-lite"
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_3",
+        "name": "ScoreIntent",
+        "content": "{\"intent\": \"shipping\", \"score\": 0.414, \"alternatives\": [{\"intent\": \"billing\", \"score\": 0.25}]}"
+      }
+    ]
+  },
+  {
+    "conversation_id": "email-intent-classifier-c07",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Classify today's inbound messages for support."
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_0",
+            "name": "ParseEmail",
+            "arguments": {
+              "message_id": "msg-20316",
+              "include_headers": true
+            }
+          },
+          {
+            "id": "call_1",
+            "name": "ScoreIntent",
+            "arguments": {
+              "message_id": "msg-37363",
+              "model": "intent-v3"
+            }
+          },
+          {
+            "id": "call_2",
+            "name": "TagMessage",
+            "arguments": {
+              "message_id": "msg-62385",
+              "tag": "vip",
+              "sticky": true
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "conversation_id": "email-intent-classifier-c08",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Inspect the headers on this message before tagging."
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_0",
+            "name": "ParseEmail",
+            "arguments": {
+              "message_id": "msg-22329",
+              "include_headers": false
+            }
+          },
+          {
+            "id": "call_1",
+            "name": "ScoreIntent",
+            "arguments": {
+              "message_id": "msg-63419",
+              "model": "intent-v3"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "conversation_id": "email-intent-classifier-c09",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Parse this email and score the intent."
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_0",
+            "name": "ParseEmail",
+            "arguments": {
+              "message_id": "msg-18851",
+              "include_headers": true
+            }
+          },
+          {
+            "id": "call_1",
+            "name": "ScoreIntent",
+            "arguments": {
+              "message_id": "msg-36095",
+              "model": "intent-lite"
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_0",
+        "name": "ParseEmail",
+        "content": "{\"message_id\": \"msg-18851\", \"from\": \"user266@example.com\", \"subject\": \"Cannot log in\", \"headers\": {\"reply_to\": \"support14@example.com\"}}"
+      },
+      {
+        "role": "user",
+        "content": "Tag the escalation thread as churn risk."
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_2",
+            "name": "ScoreIntent",
+            "arguments": {
+              "message_id": "msg-26480",
+              "model": "intent-lite"
+            }
+          },
+          {
+            "id": "call_3",
+            "name": "TagMessage",
+            "arguments": {
+              "message_id": "msg-48010",
+              "tag": "vip",
+              "sticky": false
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_2",
+        "name": "ScoreIntent",
+        "content": "{\"intent\": \"billing\", \"score\": 0.539, \"alternatives\": [{\"intent\": \"shipping\", \"score\": 0.292}]}"
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_3",
+        "name": "TagMessage",
+        "content": "{\"message_id\": \"msg-48010\", \"tag\": \"vip\", \"sticky\": false}"
+      }
+    ]
+  },
+  {
+    "conversation_id": "email-intent-classifier-c10",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Tag the escalation thread as churn risk."
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_0",
+            "name": "ParseEmail",
+            "arguments": {
+              "message_id": "msg-69344",
+              "include_headers": false
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_0",
+        "name": "ParseEmail",
+        "content": "{\"message_id\": \"msg-69344\", \"from\": \"user310@example.com\", \"subject\": \"Invoice question\", \"headers\": {\"reply_to\": \"support23@example.com\"}}"
+      }
+    ]
+  },
+  {
+    "conversation_id": "email-intent-classifier-c11",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Classify today's inbound messages for support."
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_0",
+            "name": "ParseEmail",
+            "arguments": {
+              "message_id": "msg-95895",
+              "include_headers": false
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_0",
+        "name": "ParseEmail",
+        "content": "{\"message_id\": \"msg-95895\", \"from\": \"user478@example.com\", \"subject\": \"Refund request\", \"headers\": {\"reply_to\": \"support18@example.com\"}}"
+      }
+    ]
+  }
+]

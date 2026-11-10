@@ -1,0 +1,65 @@
+{
+  "team": "Dialogue Platform",
+  "members": [
+    {
+      "full_name": "Alina Petrova",
+      "handle": "alina",
+      "branch": "dev/alina",
+      "task_root": "tasks/alina"
+    },
+    {
+      "full_name": "Bruno Costa",
+      "handle": "bruno",
+      "branch": "dev/bruno",
+      "task_root": "tasks/bruno"
+    },
+    {
+      "full_name": "Chetan Rao",
+      "handle": "chetan",
+      "branch": "dev/chetan",
+      "task_root": "tasks/chetan"
+    },
+    {
+      "full_name": "Dara Okoye",
+      "handle": "dara",
+      "branch": "dev/dara",
+      "task_root": "tasks/dara"
+    },
+    {
+      "full_name": "Emeka Obi",
+      "handle": "emeka",
+      "branch": "dev/emeka",
+      "task_root": "tasks/emeka"
+    },
+    {
+      "full_name": "Farah Nasser",
+      "handle": "farah",
+      "branch": "dev/farah",
+      "task_root": "tasks/farah"
+    },
+    {
+      "full_name": "Gustavo Lima",
+      "handle": "glima",
+      "branch": "dev/glima",
+      "task_root": "tasks/glima"
+    },
+    {
+      "full_name": "Hana Suzuki",
+      "handle": "hsuzuki",
+      "branch": "dev/hsuzuki",
+      "task_root": "tasks/hsuzuki"
+    },
+    {
+      "full_name": "Ivan Sokolov",
+      "handle": "isokolov",
+      "branch": "dev/isokolov",
+      "task_root": "tasks/isokolov"
+    },
+    {
+      "full_name": "Jun Park",
+      "handle": "jun",
+      "branch": "dev/jun",
+      "task_root": "tasks/jun"
+    }
+  ]
+}

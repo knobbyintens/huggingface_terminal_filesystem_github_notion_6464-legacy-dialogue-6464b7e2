@@ -1,0 +1,12 @@
+task,status,implementor,team,priority,last_updated
+dialog-topic-labeler,Implemented,Farah Nasser,NLP,P1,2026-09-18
+image-thumbnailer,Implemented,Chetan Rao,Media,P2,2026-08-30
+refund-request-router,Implemented,Gustavo Lima,Support,P1,2026-10-02
+faq-kb-synthesizer,Implemented,Jun Park,Knowledge,P2,2026-09-05
+meeting-notes-digester,Implemented,Hana Suzuki,Productivity,P2,2026-10-11
+inventory-alert-bundler,Implemented,Ivan Sokolov,Ops,P1,2026-09-27
+email-intent-classifier,Implemented,Emeka Obi,NLP,P3,2026-10-19
+promo-video-editor,In Progress,Alina Petrova,Media,P2,2026-10-21
+social-publisher,Backlog,Bruno Costa,Growth,P3,2026-10-25
+voice-transcript-cleaner,In Progress,Dara Okoye,Voice,P2,2026-10-28
+audit-log-summarizer,Archived,Jun Park,Platform,P3,2026-07-14

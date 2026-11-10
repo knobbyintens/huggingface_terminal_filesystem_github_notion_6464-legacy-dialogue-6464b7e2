@@ -1,0 +1,98 @@
+{
+  "task": "__generic__",
+  "dialect": "compact-v2",
+  "conversations": [
+    {
+      "conversation_id": "__generic__-c01",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Review the sprint plan for the platform team."
+        },
+        {
+          "role": "assistant",
+          "value": "[PlanSprint(team=\"platform\", sprint_len=11)]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"PlanSprint\", \"results\": {\"team\": \"platform\", \"capacity_points\": 22}}]"
+        }
+      ]
+    },
+    {
+      "conversation_id": "__generic__-c02",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Sync the shared calendar for next week."
+        },
+        {
+          "role": "assistant",
+          "value": "[PlanSprint(team=\"media\", sprint_len=10)]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"PlanSprint\", \"results\": {\"team\": \"media\", \"capacity_points\": 23}}]"
+        },
+        {
+          "role": "user",
+          "value": "Look up this glossary term."
+        },
+        {
+          "role": "assistant",
+          "value": "[SyncCalendar(calendar_id=\"CAL-81257\", dry_run=true)]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"SyncCalendar\", \"results\": {\"calendar_id\": \"CAL-81257\", \"events_synced\": 24}}]"
+        }
+      ]
+    },
+    {
+      "conversation_id": "__generic__-c03",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Look up this glossary term."
+        },
+        {
+          "role": "assistant",
+          "value": "[PlanSprint(team=\"media\", sprint_len=15), SyncCalendar(calendar_id=\"CAL-38971\", dry_run=false)]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"PlanSprint\", \"results\": {\"team\": \"media\", \"capacity_points\": 37}}, {\"name\": \"SyncCalendar\", \"results\": {\"calendar_id\": \"CAL-38971\", \"events_synced\": 11}}]"
+        }
+      ]
+    },
+    {
+      "conversation_id": "__generic__-c04",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Review the sprint plan for the platform team."
+        },
+        {
+          "role": "assistant",
+          "value": "[PlanSprint(team=\"media\", sprint_len=6), SyncCalendar(calendar_id=\"CAL-91068\", dry_run=false)]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"PlanSprint\", \"results\": {\"team\": \"media\", \"capacity_points\": 22}}, {\"name\": \"SyncCalendar\", \"results\": {\"calendar_id\": \"CAL-91068\", \"events_synced\": 14}}]"
+        },
+        {
+          "role": "user",
+          "value": "Sync the shared calendar for next week."
+        },
+        {
+          "role": "assistant",
+          "value": "[SyncCalendar(calendar_id=\"CAL-13114\", dry_run=true)]"
+        },
+        {
+          "role": "tool",
+          "value": "[]"
+        }
+      ]
+    }
+  ]
+}

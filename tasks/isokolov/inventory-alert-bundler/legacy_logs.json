@@ -1,0 +1,203 @@
+{
+  "task": "inventory-alert-bundler",
+  "dialect": "compact-v2",
+  "conversations": [
+    {
+      "conversation_id": "inventory-alert-bundler-c01",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Check stock for the flagged SKU and bundle the alerts."
+        },
+        {
+          "role": "assistant",
+          "value": "[QueryStock(sku=\"SKU-55650\", warehouse=\"WH-12\")]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"QueryStock\", \"results\": {\"sku\": \"SKU-55650\", \"warehouse\": \"WH-12\", \"on_hand\": 27, \"threshold\": 20}}]"
+        }
+      ]
+    },
+    {
+      "conversation_id": "inventory-alert-bundler-c02",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Notify the ops channel about the low-stock bundle."
+        },
+        {
+          "role": "assistant",
+          "value": "[QueryStock(sku=\"SKU-25636\", warehouse=\"WH-03\")]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"QueryStock\", \"results\": {\"sku\": \"SKU-25636\", \"warehouse\": \"WH-03\", \"on_hand\": 50, \"threshold\": 20}}]"
+        },
+        {
+          "role": "user",
+          "value": "Which warehouse is running low on this item?"
+        },
+        {
+          "role": "assistant",
+          "value": "[BundleAlerts(sku=\"SKU-88053\", severity=\"low\")]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"BundleAlerts\", \"results\": {\"bundle_id\": \"AL-1405\", \"alerts\": [{\"type\": \"low_stock\", \"qty\": 40}, {\"type\": \"low_stock\", \"qty\": 20}, {\"type\": \"overstock\", \"qty\": 39}], \"severity\": \"low\"}}]"
+        }
+      ]
+    },
+    {
+      "conversation_id": "inventory-alert-bundler-c03",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Which warehouse is running low on this item?"
+        },
+        {
+          "role": "assistant",
+          "value": "[QueryStock(sku=\"SKU-46460\", warehouse=\"WH-07\"), BundleAlerts(sku=\"SKU-45068\", severity=\"low\")]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"QueryStock\", \"results\": {\"sku\": \"SKU-46460\", \"warehouse\": \"WH-07\", \"on_hand\": 136, \"threshold\": 40}}, {\"name\": \"BundleAlerts\", \"results\": {\"bundle_id\": \"AL-1180\", \"alerts\": [{\"type\": \"expiry\", \"qty\": 45}, {\"type\": \"low_stock\", \"qty\": 28}, {\"type\": \"expiry\", \"qty\": 35}], \"severity\": \"low\"}}]"
+        }
+      ]
+    },
+    {
+      "conversation_id": "inventory-alert-bundler-c04",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Prepare an alert bundle for the replenishment review."
+        },
+        {
+          "role": "assistant",
+          "value": "[QueryStock(sku=\"SKU-98598\", warehouse=\"WH-03\"), BundleAlerts(sku=\"SKU-73539\", severity=\"low\")]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"QueryStock\", \"results\": {\"sku\": \"SKU-98598\", \"warehouse\": \"WH-03\", \"on_hand\": 11, \"threshold\": 20}}, {\"name\": \"BundleAlerts\", \"results\": {\"bundle_id\": \"AL-6146\", \"alerts\": [{\"type\": \"overstock\", \"qty\": 49}, {\"type\": \"expiry\", \"qty\": 54}], \"severity\": \"low\"}}]"
+        },
+        {
+          "role": "user",
+          "value": "Check stock for the flagged SKU and bundle the alerts."
+        },
+        {
+          "role": "assistant",
+          "value": "[BundleAlerts(sku=\"SKU-61549\", severity=\"low\")]"
+        },
+        {
+          "role": "tool",
+          "value": "[]"
+        }
+      ]
+    },
+    {
+      "conversation_id": "inventory-alert-bundler-c05",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Check stock for the flagged SKU and bundle the alerts."
+        },
+        {
+          "role": "assistant",
+          "value": "[QueryStock(sku=\"SKU-42365\", warehouse=\"WH-03\"), BundleAlerts(sku=\"SKU-75182\", severity=\"medium\")]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"QueryStock\", \"results\": {\"sku\": \"SKU-42365\", \"warehouse\": \"WH-03\", \"on_hand\": 222, \"threshold\": 20}}]"
+        }
+      ]
+    },
+    {
+      "conversation_id": "inventory-alert-bundler-c06",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Notify the ops channel about the low-stock bundle."
+        },
+        {
+          "role": "assistant",
+          "value": "[QueryStock(sku=\"SKU-66618\", warehouse=\"WH-07\"), BundleAlerts(sku=\"SKU-89593\", severity=\"medium\"), NotifyChannel(channel=\"ops\", silent=false, attempts=4)]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"QueryStock\", \"results\": {\"sku\": \"SKU-66618\", \"warehouse\": \"WH-07\", \"on_hand\": 217, \"threshold\": 40}}]"
+        },
+        {
+          "role": "user",
+          "value": "Which warehouse is running low on this item?"
+        },
+        {
+          "role": "assistant",
+          "value": "[BundleAlerts(sku=\"SKU-98580\", severity=\"low\")]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"BundleAlerts\", \"results\": {\"bundle_id\": \"AL-9401\", \"alerts\": [{\"type\": \"overstock\", \"qty\": 14}, {\"type\": \"expiry\", \"qty\": 18}, {\"type\": \"overstock\", \"qty\": 12}], \"severity\": \"low\"}}]"
+        }
+      ]
+    },
+    {
+      "conversation_id": "inventory-alert-bundler-c07",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Which warehouse is running low on this item?"
+        },
+        {
+          "role": "assistant",
+          "value": "[QueryStock(sku=\"SKU-27079\", warehouse=\"WH-07\"), BundleAlerts(sku=\"SKU-42827\", severity=\"high\"), NotifyChannel(channel=\"slack\", silent=true, attempts=2)]"
+        },
+        {
+          "role": "tool",
+          "value": "[]"
+        }
+      ]
+    },
+    {
+      "conversation_id": "inventory-alert-bundler-c08",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Prepare an alert bundle for the replenishment review."
+        },
+        {
+          "role": "assistant",
+          "value": "[QueryStock(sku=\"SKU-81992\", warehouse=\"WH-12\"), BundleAlerts(sku=\"SKU-28204\", severity=\"medium\")]"
+        }
+      ]
+    },
+    {
+      "conversation_id": "inventory-alert-bundler-c09",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Check stock for the flagged SKU and bundle the alerts."
+        },
+        {
+          "role": "assistant",
+          "value": "[QueryStock(sku=\"SKU-76032\", warehouse=\"WH-03\"), BundleAlerts(sku=\"SKU-29880\", severity=\"high\")]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"QueryStock\", \"results\": {\"sku\": \"SKU-76032\", \"warehouse\": \"WH-03\", \"on_hand\": 49, \"threshold\": 10}}]"
+        },
+        {
+          "role": "user",
+          "value": "Notify the ops channel about the low-stock bundle."
+        },
+        {
+          "role": "assistant",
+          "value": "[BundleAlerts(sku=\"SKU-47783\", severity=\"medium\"), NotifyChannel(channel=\"ops\", silent=true, attempts=3)]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"BundleAlerts\", \"results\": {\"bundle_id\": \"AL-5231\", \"alerts\": [{\"type\": \"overstock\", \"qty\": 39}], \"severity\": \"medium\"}}, {\"name\": \"NotifyChannel\", \"results\": {\"channel\": \"ops\", \"sent\": true, \"attempts\": 3}}]"
+        }
+      ]
+    }
+  ]
+}

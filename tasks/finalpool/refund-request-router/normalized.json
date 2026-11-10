@@ -1,0 +1,565 @@
+[
+  {
+    "conversation_id": "refund-request-router-c01",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Look up the order and tell me whether a refund is allowed."
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_0",
+            "name": "FetchOrder",
+            "arguments": {
+              "order_id": "ORD-22183",
+              "include_history": true
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_0",
+        "name": "FetchOrder",
+        "content": "{\"order_id\": \"ORD-22183\", \"status\": \"processing\", \"total\": 747.83, \"items\": [{\"sku\": \"SKU-219\", \"qty\": 2}]}"
+      }
+    ]
+  },
+  {
+    "conversation_id": "refund-request-router-c02",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Route this complaint to the right support queue."
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_0",
+            "name": "FetchOrder",
+            "arguments": {
+              "order_id": "ORD-93001",
+              "include_history": true
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_0",
+        "name": "FetchOrder",
+        "content": "{\"order_id\": \"ORD-93001\", \"status\": \"processing\", \"total\": 649.36, \"items\": [{\"sku\": \"SKU-290\", \"qty\": 3}, {\"sku\": \"SKU-406\", \"qty\": 4}, {\"sku\": \"SKU-629\", \"qty\": 3}]}"
+      },
+      {
+        "role": "user",
+        "content": "Can the customer get a refund for this order?"
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_1",
+            "name": "CheckRefundPolicy",
+            "arguments": {
+              "order_id": "ORD-45841",
+              "region": "EU",
+              "window_days": 14
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_1",
+        "name": "CheckRefundPolicy",
+        "content": "{\"eligible\": true, \"rule_id\": \"POL-46\", \"reason\": \"missing_receipt\"}"
+      }
+    ]
+  },
+  {
+    "conversation_id": "refund-request-router-c03",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Can the customer get a refund for this order?"
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_0",
+            "name": "FetchOrder",
+            "arguments": {
+              "order_id": "ORD-88648",
+              "include_history": false
+            }
+          },
+          {
+            "id": "call_1",
+            "name": "CheckRefundPolicy",
+            "arguments": {
+              "order_id": "ORD-41528",
+              "region": "APAC",
+              "window_days": 45
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_0",
+        "name": "FetchOrder",
+        "content": "{\"order_id\": \"ORD-88648\", \"status\": \"shipped\", \"total\": 559.14, \"items\": [{\"sku\": \"SKU-460\", \"qty\": 2}]}"
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_1",
+        "name": "CheckRefundPolicy",
+        "content": "{\"eligible\": true, \"rule_id\": \"POL-85\", \"reason\": \"missing_receipt\"}"
+      }
+    ]
+  },
+  {
+    "conversation_id": "refund-request-router-c04",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Check the policy window and escalate if needed."
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_0",
+            "name": "FetchOrder",
+            "arguments": {
+              "order_id": "ORD-64153",
+              "include_history": true
+            }
+          },
+          {
+            "id": "call_1",
+            "name": "CheckRefundPolicy",
+            "arguments": {
+              "order_id": "ORD-84857",
+              "region": "APAC",
+              "window_days": 45
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_0",
+        "name": "FetchOrder",
+        "content": "{\"order_id\": \"ORD-64153\", \"status\": \"shipped\", \"total\": 87.31, \"items\": [{\"sku\": \"SKU-288\", \"qty\": 2}, {\"sku\": \"SKU-168\", \"qty\": 2}, {\"sku\": \"SKU-259\", \"qty\": 3}]}"
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_1",
+        "name": "CheckRefundPolicy",
+        "content": "{\"eligible\": false, \"rule_id\": \"POL-93\", \"reason\": \"missing_receipt\"}"
+      },
+      {
+        "role": "user",
+        "content": "Look up the order and tell me whether a refund is allowed."
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_2",
+            "name": "CheckRefundPolicy",
+            "arguments": {
+              "order_id": "ORD-95749",
+              "region": "US",
+              "window_days": 45
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "conversation_id": "refund-request-router-c05",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Look up the order and tell me whether a refund is allowed."
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_0",
+            "name": "FetchOrder",
+            "arguments": {
+              "order_id": "ORD-65209",
+              "include_history": false
+            }
+          },
+          {
+            "id": "call_1",
+            "name": "CheckRefundPolicy",
+            "arguments": {
+              "order_id": "ORD-52433",
+              "region": "EU",
+              "window_days": 30
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_0",
+        "name": "FetchOrder",
+        "content": "{\"order_id\": \"ORD-65209\", \"status\": \"delivered\", \"total\": 741.29, \"items\": [{\"sku\": \"SKU-787\", \"qty\": 4}, {\"sku\": \"SKU-311\", \"qty\": 4}, {\"sku\": \"SKU-928\", \"qty\": 2}]}"
+      }
+    ]
+  },
+  {
+    "conversation_id": "refund-request-router-c06",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Route this complaint to the right support queue."
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_0",
+            "name": "FetchOrder",
+            "arguments": {
+              "order_id": "ORD-77598",
+              "include_history": true
+            }
+          },
+          {
+            "id": "call_1",
+            "name": "CheckRefundPolicy",
+            "arguments": {
+              "order_id": "ORD-54074",
+              "region": "APAC",
+              "window_days": 45
+            }
+          },
+          {
+            "id": "call_2",
+            "name": "RouteCase",
+            "arguments": {
+              "case_id": "RC-42976",
+              "queue": "tier1",
+              "urgent": false
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_0",
+        "name": "FetchOrder",
+        "content": "{\"order_id\": \"ORD-77598\", \"status\": \"shipped\", \"total\": 677.13, \"items\": [{\"sku\": \"SKU-720\", \"qty\": 1}, {\"sku\": \"SKU-656\", \"qty\": 1}, {\"sku\": \"SKU-191\", \"qty\": 4}]}"
+      },
+      {
+        "role": "user",
+        "content": "Can the customer get a refund for this order?"
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_3",
+            "name": "CheckRefundPolicy",
+            "arguments": {
+              "order_id": "ORD-21797",
+              "region": "US",
+              "window_days": 14
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_3",
+        "name": "CheckRefundPolicy",
+        "content": "{\"eligible\": false, \"rule_id\": \"POL-88\", \"reason\": \"final_sale\"}"
+      }
+    ]
+  },
+  {
+    "conversation_id": "refund-request-router-c07",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Can the customer get a refund for this order?"
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_0",
+            "name": "FetchOrder",
+            "arguments": {
+              "order_id": "ORD-38221",
+              "include_history": false
+            }
+          },
+          {
+            "id": "call_1",
+            "name": "CheckRefundPolicy",
+            "arguments": {
+              "order_id": "ORD-88763",
+              "region": "US",
+              "window_days": 45
+            }
+          },
+          {
+            "id": "call_2",
+            "name": "RouteCase",
+            "arguments": {
+              "case_id": "RC-12015",
+              "queue": "tier2",
+              "urgent": true
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "conversation_id": "refund-request-router-c08",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Check the policy window and escalate if needed."
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_0",
+            "name": "FetchOrder",
+            "arguments": {
+              "order_id": "ORD-86638",
+              "include_history": false
+            }
+          },
+          {
+            "id": "call_1",
+            "name": "CheckRefundPolicy",
+            "arguments": {
+              "order_id": "ORD-78630",
+              "region": "APAC",
+              "window_days": 45
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "conversation_id": "refund-request-router-c09",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Look up the order and tell me whether a refund is allowed."
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_0",
+            "name": "FetchOrder",
+            "arguments": {
+              "order_id": "ORD-88121",
+              "include_history": false
+            }
+          },
+          {
+            "id": "call_1",
+            "name": "CheckRefundPolicy",
+            "arguments": {
+              "order_id": "ORD-28237",
+              "region": "EU",
+              "window_days": 30
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_0",
+        "name": "FetchOrder",
+        "content": "{\"order_id\": \"ORD-88121\", \"status\": \"processing\", \"total\": 761.54, \"items\": [{\"sku\": \"SKU-192\", \"qty\": 3}]}"
+      },
+      {
+        "role": "user",
+        "content": "Route this complaint to the right support queue."
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_2",
+            "name": "CheckRefundPolicy",
+            "arguments": {
+              "order_id": "ORD-90033",
+              "region": "APAC",
+              "window_days": 45
+            }
+          },
+          {
+            "id": "call_3",
+            "name": "RouteCase",
+            "arguments": {
+              "case_id": "RC-20270",
+              "queue": "tier2",
+              "urgent": false
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_2",
+        "name": "CheckRefundPolicy",
+        "content": "{\"eligible\": false, \"rule_id\": \"POL-21\", \"reason\": \"final_sale\"}"
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_3",
+        "name": "RouteCase",
+        "content": "{\"case_id\": \"RC-20270\", \"queue\": \"tier2\", \"sla_hours\": 24}"
+      }
+    ]
+  },
+  {
+    "conversation_id": "refund-request-router-c10",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Route this complaint to the right support queue."
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_0",
+            "name": "FetchOrder",
+            "arguments": {
+              "order_id": "ORD-39158",
+              "include_history": true
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_0",
+        "name": "FetchOrder",
+        "content": "{\"order_id\": \"ORD-39158\", \"status\": \"delivered\", \"total\": 817.58, \"items\": [{\"sku\": \"SKU-764\", \"qty\": 3}, {\"sku\": \"SKU-270\", \"qty\": 4}]}"
+      }
+    ]
+  },
+  {
+    "conversation_id": "refund-request-router-c11",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Can the customer get a refund for this order?"
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_0",
+            "name": "FetchOrder",
+            "arguments": {
+              "order_id": "ORD-71053",
+              "include_history": true
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_0",
+        "name": "FetchOrder",
+        "content": "{\"order_id\": \"ORD-71053\", \"status\": \"shipped\", \"total\": 296.05, \"items\": [{\"sku\": \"SKU-702\", \"qty\": 3}, {\"sku\": \"SKU-942\", \"qty\": 2}]}"
+      }
+    ]
+  },
+  {
+    "conversation_id": "refund-request-router-c12",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Check the policy window and escalate if needed."
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_0",
+            "name": "FetchOrder",
+            "arguments": {
+              "order_id": "ORD-19890",
+              "include_history": false
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_0",
+        "name": "FetchOrder",
+        "content": "{\"order_id\": \"ORD-19890\", \"status\": \"delivered\", \"total\": 583.47, \"items\": [{\"sku\": \"SKU-794\", \"qty\": 1}]}"
+      },
+      {
+        "role": "user",
+        "content": "Look up the order and tell me whether a refund is allowed."
+      },
+      {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_1",
+            "name": "CheckRefundPolicy",
+            "arguments": {
+              "order_id": "ORD-73866",
+              "region": "APAC",
+              "window_days": 30
+            }
+          }
+        ]
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_1",
+        "name": "CheckRefundPolicy",
+        "content": "{\"eligible\": false, \"rule_id\": \"POL-81\", \"reason\": \"within_window\"}"
+      }
+    ]
+  }
+]

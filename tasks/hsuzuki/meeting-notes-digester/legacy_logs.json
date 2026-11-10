@@ -1,0 +1,220 @@
+{
+  "task": "meeting-notes-digester",
+  "dialect": "compact-v2",
+  "conversations": [
+    {
+      "conversation_id": "meeting-notes-digester-c01",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Transcribe yesterday's product sync and extract action items."
+        },
+        {
+          "role": "assistant",
+          "value": "[TranscribeMeeting(meeting_id=\"MTG-18121\", language=\"es\")]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"TranscribeMeeting\", \"results\": {\"meeting_id\": \"MTG-18121\", \"duration_min\": 55, \"segments\": [{\"speaker\": \"S4\", \"start\": 0.0, \"end\": 9.0}, {\"speaker\": \"S2\", \"start\": 12.0, \"end\": 21.0}, {\"speaker\": \"S4\", \"start\": 24.0, \"end\": 33.0}]}}]"
+        }
+      ]
+    },
+    {
+      "conversation_id": "meeting-notes-digester-c02",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Summarize the client call for the account team."
+        },
+        {
+          "role": "assistant",
+          "value": "[TranscribeMeeting(meeting_id=\"MTG-86069\", language=\"en\")]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"TranscribeMeeting\", \"results\": {\"meeting_id\": \"MTG-86069\", \"duration_min\": 74, \"segments\": [{\"speaker\": \"S2\", \"start\": 0.0, \"end\": 9.0}, {\"speaker\": \"S3\", \"start\": 12.0, \"end\": 21.0}, {\"speaker\": \"S2\", \"start\": 24.0, \"end\": 33.0}]}}]"
+        },
+        {
+          "role": "user",
+          "value": "Store the meeting summary with the exec audience."
+        },
+        {
+          "role": "assistant",
+          "value": "[ExtractActions(meeting_id=\"MTG-84472\", max_items=8)]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"ExtractActions\", \"results\": {\"meeting_id\": \"MTG-84472\", \"count\": 2, \"actions\": [{\"owner\": \"Dara\", \"task\": \"send recap\"}]}}]"
+        }
+      ]
+    },
+    {
+      "conversation_id": "meeting-notes-digester-c03",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Store the meeting summary with the exec audience."
+        },
+        {
+          "role": "assistant",
+          "value": "[TranscribeMeeting(meeting_id=\"MTG-78268\", language=\"en\"), ExtractActions(meeting_id=\"MTG-21491\", max_items=6)]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"TranscribeMeeting\", \"results\": {\"meeting_id\": \"MTG-78268\", \"duration_min\": 19, \"segments\": [{\"speaker\": \"S1\", \"start\": 0.0, \"end\": 9.0}, {\"speaker\": \"S3\", \"start\": 12.0, \"end\": 21.0}, {\"speaker\": \"S2\", \"start\": 24.0, \"end\": 33.0}]}}, {\"name\": \"ExtractActions\", \"results\": {\"meeting_id\": \"MTG-21491\", \"count\": 2, \"actions\": [{\"owner\": \"Chetan\", \"task\": \"update doc\"}, {\"owner\": \"Bruno\", \"task\": \"update doc\"}]}}]"
+        }
+      ]
+    },
+    {
+      "conversation_id": "meeting-notes-digester-c04",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Pull the action list from the engineering standup."
+        },
+        {
+          "role": "assistant",
+          "value": "[TranscribeMeeting(meeting_id=\"MTG-95561\", language=\"en\"), ExtractActions(meeting_id=\"MTG-29615\", max_items=7)]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"TranscribeMeeting\", \"results\": {\"meeting_id\": \"MTG-95561\", \"duration_min\": 39, \"segments\": [{\"speaker\": \"S2\", \"start\": 0.0, \"end\": 9.0}, {\"speaker\": \"S2\", \"start\": 12.0, \"end\": 21.0}, {\"speaker\": \"S1\", \"start\": 24.0, \"end\": 33.0}]}}, {\"name\": \"ExtractActions\", \"results\": {\"meeting_id\": \"MTG-29615\", \"count\": 1, \"actions\": [{\"owner\": \"Bruno\", \"task\": \"update doc\"}]}}]"
+        },
+        {
+          "role": "user",
+          "value": "Transcribe yesterday's product sync and extract action items."
+        },
+        {
+          "role": "assistant",
+          "value": "[ExtractActions(meeting_id=\"MTG-41184\", max_items=7)]"
+        },
+        {
+          "role": "tool",
+          "value": "[]"
+        }
+      ]
+    },
+    {
+      "conversation_id": "meeting-notes-digester-c05",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Transcribe yesterday's product sync and extract action items."
+        },
+        {
+          "role": "assistant",
+          "value": "[TranscribeMeeting(meeting_id=\"MTG-64474\", language=\"en\"), ExtractActions(meeting_id=\"MTG-62933\", max_items=7)]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"TranscribeMeeting\", \"results\": {\"meeting_id\": \"MTG-64474\", \"duration_min\": 33, \"segments\": [{\"speaker\": \"S3\", \"start\": 0.0, \"end\": 9.0}, {\"speaker\": \"S2\", \"start\": 12.0, \"end\": 21.0}]}}]"
+        }
+      ]
+    },
+    {
+      "conversation_id": "meeting-notes-digester-c06",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Summarize the client call for the account team."
+        },
+        {
+          "role": "assistant",
+          "value": "[TranscribeMeeting(meeting_id=\"MTG-68622\", language=\"de\"), ExtractActions(meeting_id=\"MTG-49070\", max_items=3), StoreSummary(meeting_id=\"MTG-94315\", summary_id=\"SUM-40969\", audience=\"team\")]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"TranscribeMeeting\", \"results\": {\"meeting_id\": \"MTG-68622\", \"duration_min\": 73, \"segments\": [{\"speaker\": \"S1\", \"start\": 0.0, \"end\": 9.0}, {\"speaker\": \"S1\", \"start\": 12.0, \"end\": 21.0}, {\"speaker\": \"S2\", \"start\": 24.0, \"end\": 33.0}, {\"speaker\": \"S3\", \"start\": 36.0, \"end\": 45.0}]}}]"
+        },
+        {
+          "role": "user",
+          "value": "Store the meeting summary with the exec audience."
+        },
+        {
+          "role": "assistant",
+          "value": "[ExtractActions(meeting_id=\"MTG-31755\", max_items=5)]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"ExtractActions\", \"results\": {\"meeting_id\": \"MTG-31755\", \"count\": 4, \"actions\": [{\"owner\": \"Bruno\", \"task\": \"update doc\"}, {\"owner\": \"Chetan\", \"task\": \"send recap\"}]}}]"
+        }
+      ]
+    },
+    {
+      "conversation_id": "meeting-notes-digester-c07",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Store the meeting summary with the exec audience."
+        },
+        {
+          "role": "assistant",
+          "value": "[TranscribeMeeting(meeting_id=\"MTG-65373\", language=\"ja\"), ExtractActions(meeting_id=\"MTG-87076\", max_items=3), StoreSummary(meeting_id=\"MTG-87880\", summary_id=\"SUM-60924\", audience=\"client\")]"
+        },
+        {
+          "role": "tool",
+          "value": "[]"
+        }
+      ]
+    },
+    {
+      "conversation_id": "meeting-notes-digester-c08",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Pull the action list from the engineering standup."
+        },
+        {
+          "role": "assistant",
+          "value": "[TranscribeMeeting(meeting_id=\"MTG-68228\", language=\"es\"), ExtractActions(meeting_id=\"MTG-32053\", max_items=6)]"
+        }
+      ]
+    },
+    {
+      "conversation_id": "meeting-notes-digester-c09",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Transcribe yesterday's product sync and extract action items."
+        },
+        {
+          "role": "assistant",
+          "value": "[TranscribeMeeting(meeting_id=\"MTG-62485\", language=\"es\"), ExtractActions(meeting_id=\"MTG-54995\", max_items=5)]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"TranscribeMeeting\", \"results\": {\"meeting_id\": \"MTG-62485\", \"duration_min\": 60, \"segments\": [{\"speaker\": \"S3\", \"start\": 0.0, \"end\": 9.0}, {\"speaker\": \"S4\", \"start\": 12.0, \"end\": 21.0}, {\"speaker\": \"S3\", \"start\": 24.0, \"end\": 33.0}]}}]"
+        },
+        {
+          "role": "user",
+          "value": "Summarize the client call for the account team."
+        },
+        {
+          "role": "assistant",
+          "value": "[ExtractActions(meeting_id=\"MTG-17489\", max_items=5), StoreSummary(meeting_id=\"MTG-79499\", summary_id=\"SUM-99100\", audience=\"team\")]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"ExtractActions\", \"results\": {\"meeting_id\": \"MTG-17489\", \"count\": 2, \"actions\": [{\"owner\": \"Bruno\", \"task\": \"send recap\"}, {\"owner\": \"Bruno\", \"task\": \"update doc\"}]}}, {\"name\": \"StoreSummary\", \"results\": {\"summary_id\": \"SUM-99100\", \"stored\": true, \"words\": 101}}]"
+        }
+      ]
+    },
+    {
+      "conversation_id": "meeting-notes-digester-c10",
+      "turns": [
+        {
+          "role": "user",
+          "value": "Summarize the client call for the account team."
+        },
+        {
+          "role": "assistant",
+          "value": "[TranscribeMeeting(meeting_id=\"MTG-22392\", language=\"es\")]"
+        },
+        {
+          "role": "tool",
+          "value": "[{\"name\": \"TranscribeMeeting\", \"results\": {\"meeting_id\": \"MTG-22392\", \"duration_min\": 54, \"segments\": [{\"speaker\": \"S1\", \"start\": 0.0, \"end\": 9.0}, {\"speaker\": \"S4\", \"start\": 12.0, \"end\": 21.0}, {\"speaker\": \"S4\", \"start\": 24.0, \"end\": 33.0}]}}]"
+        }
+      ]
+    }
+  ]
+}
